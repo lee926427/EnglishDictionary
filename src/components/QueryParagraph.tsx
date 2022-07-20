@@ -28,15 +28,15 @@ export default function QueryParagraph({
             );
             return paragraph;
         }
-        return children;
+        return children as string;
     };
     const getRefPosition = useCallback(
         (ref: HTMLElement) => {
             const vocabularies = ref.children;
             if (vocabularies.length) {
                 setDialogPosition({
-                    left: vocabularies[0].offsetLeft,
-                    top: vocabularies[0].offsetTop,
+                    left: (vocabularies[0] as HTMLParagraphElement).offsetLeft,
+                    top: (vocabularies[0] as HTMLParagraphElement).offsetTop,
                 });
             } else {
                 setDialogPosition({
